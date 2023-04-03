@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://spells/fire_rapid/SpellRapidFireBolt.gd" type="Script" id=1]
+[ext_resource path="res://bullets/fire_ball/Fireball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://spells/Spell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://spells/fire_spray/shoot_fire.wav" type="AudioStream" id=4]
+
+[node name="SpellRapidFireBolt" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 2 )
+max_bullet_speed = 750.0
+fire_rate = 6.0
+
+[node name="AudioStreamPlayer2D" parent="." index="0"]
+stream = ExtResource( 4 )

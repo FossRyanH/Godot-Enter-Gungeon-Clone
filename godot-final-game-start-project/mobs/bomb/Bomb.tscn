@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://mobs/Mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mobs/bomb/bomb_active.png" type="Texture" id=2]
 [ext_resource path="res://mobs/bomb/bomb_inactive.png" type="Texture" id=3]
 [ext_resource path="res://mobs/bomb/explode.wav" type="AudioStream" id=4]
+[ext_resource path="res://mobs/bomb/Bomb.gd" type="Script" id=5]
 [ext_resource path="res://bullets/particle_bullet.png" type="Texture" id=6]
 [ext_resource path="res://mobs/bomb/shock_area.svg" type="Texture" id=8]
 
@@ -18,7 +19,6 @@ radius = 370.01
 [sub_resource type="Animation" id=3]
 resource_name = "explode"
 length = 2.0
-step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
 tracks/0/interp = 1
@@ -127,6 +127,32 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.356863 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("ShockArea/CollisionShape2D:shape:radius")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 450.0, 500.0, 450.0 ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "will_explode"
@@ -158,7 +184,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 448.403
+radius = 450.0
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.133333, 0.283333, 0.74, 1 )
@@ -191,18 +217,16 @@ color_ramp = SubResource( 12 )
 hue_variation = 1.0
 
 [node name="Bomb" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+damage = 4
+health = 3
+shockwave_damage = 2
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = false
 
-[node name="DetectionArea" parent="." index="1"]
-visible = false
-
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )
-
-[node name="AttackArea" parent="." index="2"]
-visible = false
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
 shape = SubResource( 2 )

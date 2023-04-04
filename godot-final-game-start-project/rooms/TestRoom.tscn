@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://spells/fire_basic/SpellBasicFire.tscn" type="PackedScene" id=7]
 [ext_resource path="res://pickups/fire_spells/RapidFireSpellPickup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mobs/shield/ShieldMob.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=10]
 
 [node name="TestRoom" type="YSort"]
 
@@ -90,14 +91,19 @@ position = Vector2( 383, 380 )
 position = Vector2( 979, 318 )
 
 [node name="FireSpellPickup" parent="." instance=ExtResource( 6 )]
-position = Vector2( 260, 673 )
+position = Vector2( -202, 559 )
 spell_scene = ExtResource( 7 )
 
 [node name="IceSpellPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 908, 654 )
+position = Vector2( 700, -151 )
 
 [node name="RapidFireSpellPickup" parent="." instance=ExtResource( 8 )]
-position = Vector2( 553, 494 )
+position = Vector2( 701, 1405 )
 
 [node name="ShieldMob" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1534, 598 )
+health = 1
+orbit_distance = 200.0
+
+[node name="Bomb" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1157, 612 )

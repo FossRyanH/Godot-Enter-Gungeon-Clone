@@ -6,6 +6,7 @@
 [node name="Cannon" type="Sprite"]
 script = ExtResource( 1 )
 BulletScene = ExtResource( 2 )
+bullet_speed = 750.0
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 37, 0 )

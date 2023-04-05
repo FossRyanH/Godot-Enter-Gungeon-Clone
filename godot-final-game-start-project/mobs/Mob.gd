@@ -12,7 +12,7 @@ export var health := 2
 export var points := 10
 # How far from the player this mob will orbit. The export hint in parentheses limits
 # The minimum and maximum orbit distance you can choose.
-export (float, 100.0, 400.0, 1.0) var orbit_distance := 200
+export (float, 100.0, 400.0, 1.0) var orbit_distance := 200.0
 # Movement speed in pixels per second.
 export var speed := 250.0
 

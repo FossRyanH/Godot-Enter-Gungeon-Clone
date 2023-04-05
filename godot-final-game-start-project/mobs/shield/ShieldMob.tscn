@@ -35,6 +35,8 @@ texture = ExtResource( 5 )
 wait_time = 1.0
 
 [node name="Cannon" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( -1, 0 )
+max_range = 1250.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="11"]
 enabled = true

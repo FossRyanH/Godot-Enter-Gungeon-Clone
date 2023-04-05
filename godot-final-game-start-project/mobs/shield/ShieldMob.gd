@@ -1,6 +1,7 @@
 extends Mob
 
 onready var cannon := $Cannon
+onready var raycast := $RayCast2D
 
 
 func prepare_to_attack() -> void:
@@ -21,13 +22,19 @@ func _on_BeforeAttackTimer_timeout() -> void:
 func _physics_process(delta: float) -> void:
 	if not _target:
 		return
-	cannon.look_at(_target.global_position)
-	
-	if _target_within_range:
-		orbit_target()
-		prepare_to_attack()
 	else:
-		follow(_target.global_position)
+		raycast.look_at(_target.global_position)
+		raycast.force_raycast_update()
+		if raycast.get_collider() == _target:
+			follow(_target.global_position)
+		else:
+			orbit_target()
+	
+		if _target_within_range:
+			orbit_target()
+			prepare_to_attack()
+		else:
+			return
 
 
 func _on_DetectionArea_body_exited(_body: Robot) -> void:

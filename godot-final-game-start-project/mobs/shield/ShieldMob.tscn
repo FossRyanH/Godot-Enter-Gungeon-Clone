@@ -35,3 +35,8 @@ texture = ExtResource( 5 )
 wait_time = 1.0
 
 [node name="Cannon" parent="." index="10" instance=ExtResource( 3 )]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="11"]
+enabled = true
+cast_to = Vector2( 0, 425 )
+collision_mask = 17

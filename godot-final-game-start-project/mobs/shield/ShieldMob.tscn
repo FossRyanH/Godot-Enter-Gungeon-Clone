@@ -41,8 +41,6 @@ position = Vector2( -1, 0 )
 max_range = 1250.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="11"]
-modulate = Color( 0.313726, 1, 0, 1 )
-scale = Vector2( 1, 3 )
 enabled = true
-cast_to = Vector2( 500, 0 )
+cast_to = Vector2( 0, 425 )
 collision_mask = 17

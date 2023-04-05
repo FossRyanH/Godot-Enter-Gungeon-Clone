@@ -11,7 +11,9 @@ script = ExtResource( 2 )
 spell_scene = ExtResource( 5 )
 
 [node name="Sprite" parent="." index="2"]
+modulate = Color( 1, 0.74902, 0, 1 )
 texture = ExtResource( 4 )
 
 [node name="PariclesSparkle" parent="Sprite" index="0"]
+amount = 6
 texture = ExtResource( 3 )

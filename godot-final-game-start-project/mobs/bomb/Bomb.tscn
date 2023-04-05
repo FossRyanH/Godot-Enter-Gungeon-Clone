@@ -204,12 +204,7 @@ hue_variation = 1.0
 
 [node name="Bomb" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
-damage = 4
-health = 3
 shockwave_damage = 2
-
-[node name="CollisionShape2D" parent="." index="0"]
-visible = false
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )

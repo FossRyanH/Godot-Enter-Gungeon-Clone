@@ -102,8 +102,7 @@ position = Vector2( 701, 1405 )
 
 [node name="ShieldMob" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1534, 598 )
-health = 1
-orbit_distance = 200.0
+health = 2
 
 [node name="Bomb" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1157, 612 )
+position = Vector2( 1228, 823 )

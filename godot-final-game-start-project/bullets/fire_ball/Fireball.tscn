@@ -187,7 +187,7 @@ color = Color( 0.980392, 1, 1, 1 )
 color_ramp = SubResource( 10 )
 
 [node name="Fireball" type="Area2D"]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 18
 script = ExtResource( 4 )
 

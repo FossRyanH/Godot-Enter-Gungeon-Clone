@@ -1,16 +1,19 @@
 extends Mob
 
-# The amount of damage the shockwave ill deal instead of full damage
-export(int, 1, 4, 1) var shockwave_damage := 1
+export var shockwave_damage := 2
 
-# Get a handle to the shockarea
-onready var shockwave_area := $ShockArea
+onready var shockwave := $ShockArea
 
 
 func _ready() -> void:
 	_animation_player.connect("animation_finished", self, "on_AnimationPlayer_animation_finished")
-	shockwave_area.connect("body_entered", self, "on_ShockArea_body_entered")
+	shockwave.connect("body_entered", self, "on_ShockWave_emitted")
 
+
+func _on_AttackArea_body_entered(body: Robot) -> void:
+	_sprite_alert.visible = true
+	_animation_player.play("will_explode")
+	
 
 func on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "will_explode":
@@ -20,14 +23,8 @@ func on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	elif anim_name == "explode":
 		queue_free()
 
-
-func _on_AttackArea_body_entered(body: Robot) -> void:
-	if body is Robot:
-		_animation_player.play("will_explode")
-
-
-func on_ShockArea_body_entered(_body: Node) -> void:
-	if _body == self:
+func on_ShockWave_emitted(body: Node) -> void:
+	if body == self:
 		return
-	if _body.has_method("take_damage"):
-		_body.take_damage(damage)
+	if body.has_method("take_damage"):
+		body.take_damage(damage)

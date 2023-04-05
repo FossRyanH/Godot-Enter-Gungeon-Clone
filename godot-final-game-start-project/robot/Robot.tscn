@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://robot/Skin.gd" type="Script" id=1]
 [ext_resource path="res://robot/robot_sprites.png" type="Texture" id=2]
@@ -289,10 +289,6 @@ scale_random = 0.5
 scale_curve = SubResource( 13 )
 color_ramp = SubResource( 11 )
 
-[sub_resource type="CapsuleShape2D" id=17]
-radius = 33.0
-height = 48.0
-
 [node name="Robot" type="KinematicBody2D"]
 collision_mask = 50
 script = ExtResource( 6 )
@@ -353,10 +349,3 @@ bus = "SFX"
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 bus = "SFX"
-
-[node name="HitBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-modulate = Color( 0.101961, 1, 0, 1 )
-position = Vector2( 0, -37 )
-shape = SubResource( 17 )

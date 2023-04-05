@@ -91,14 +91,14 @@ position = Vector2( 383, 380 )
 position = Vector2( 979, 318 )
 
 [node name="FireSpellPickup" parent="." instance=ExtResource( 6 )]
-position = Vector2( -202, 559 )
+position = Vector2( 260, 673 )
 spell_scene = ExtResource( 7 )
 
 [node name="IceSpellPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 113, 445 )
 
 [node name="RapidFireSpellPickup" parent="." instance=ExtResource( 8 )]
-position = Vector2( 701, 1405 )
+position = Vector2( 553, 494 )
 
 [node name="ShieldMob" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1534, 598 )

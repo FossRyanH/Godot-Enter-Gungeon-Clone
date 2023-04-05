@@ -31,7 +31,6 @@ onready var _death_audio = $DeathAudio
 onready var _skin := $Skin
 onready var _smoke_particles := $SmokeParticles
 onready var _spell_holder := $SpellHolder
-onready var hitbox := $HitBox
 
 
 func _ready() -> void:

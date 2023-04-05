@@ -1,25 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://mobs/Mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mobs/shield/ShieldMob.gd" type="Script" id=2]
 [ext_resource path="res://mobs/Cannon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mobs/shield/shield_inactive.png" type="Texture" id=4]
 [ext_resource path="res://mobs/shield/shield_active.png" type="Texture" id=5]
-[ext_resource path="res://bullets/enemy_bullets/EnemyFirebolt.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
-radius = 355.04
+radius = 326.004
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 322.017
+radius = 311.222
 
 [node name="ShieldMob" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 health = 5
-orbit_distance = 250.0
-speed = 125.0
+orbit_distance = 400.0
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )

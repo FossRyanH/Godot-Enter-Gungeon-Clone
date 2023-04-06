@@ -8,8 +8,9 @@
 [node name="IcePunch" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 bullet_scene = ExtResource( 4 )
-max_range = 1000.0
+max_range = 800.0
 max_bullet_speed = 525.0
+fire_rate = 2.0
 
 [node name="HandLeft" parent="." index="1"]
 texture = ExtResource( 3 )

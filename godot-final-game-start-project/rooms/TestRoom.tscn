@@ -1,19 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
-[ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://pickups/ice_spells/IceSpellPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/spawners/PlayerSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/spawners/MobSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
-[ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://pickups/fire_spells/FireSpellPickup.tscn" type="PackedScene" id=6]
-[ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=7]
-[ext_resource path="res://pickups/fire_spells/RapidFireSpellPickup.tscn" type="PackedScene" id=8]
-[ext_resource path="res://mobs/shield/ShieldMob.tscn" type="PackedScene" id=9]
-[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=10]
-[ext_resource path="res://mobs/sword/SwordMob.tscn" type="PackedScene" id=11]
-[ext_resource path="res://rooms/spawners/Spawner.gd" type="Script" id=12]
+[ext_resource path="res://rooms/spawners/ItemSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/spawners/TeleportSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://rooms/TestRoom.gd" type="Script" id=13]
-[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=14]
 
 [node name="TestRoom" type="YSort"]
 script = ExtResource( 13 )
@@ -75,58 +68,34 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MobSpawn" type="Sprite" parent="Mobs"]
-position = Vector2( 714, 664 )
-texture = ExtResource( 14 )
-script = ExtResource( 12 )
-list = [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ) ]
+[node name="MobSpawner" parent="Mobs" instance=ExtResource( 3 )]
+position = Vector2( 760, 519 )
 
-[node name="MobSpawn2" type="Sprite" parent="Mobs"]
-position = Vector2( 1044, 510 )
-texture = ExtResource( 14 )
-script = ExtResource( 12 )
-list = [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ) ]
+[node name="MobSpawner2" parent="Mobs" instance=ExtResource( 3 )]
+position = Vector2( 1119, 327 )
 
-[node name="MobSpawn3" type="Sprite" parent="Mobs"]
-position = Vector2( 1243, 875 )
-texture = ExtResource( 14 )
-script = ExtResource( 12 )
-list = [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ) ]
+[node name="MobSpawner3" parent="Mobs" instance=ExtResource( 3 )]
+position = Vector2( 794, 954 )
 
-[node name="MobSpawn4" type="Sprite" parent="Mobs"]
-position = Vector2( 832, 1092 )
-texture = ExtResource( 14 )
-script = ExtResource( 12 )
-list = [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ) ]
+[node name="MobSpawner4" parent="Mobs" instance=ExtResource( 3 )]
+position = Vector2( 1265, 717 )
+
+[node name="MobSpawner5" parent="Mobs" instance=ExtResource( 3 )]
+position = Vector2( 1227, 1145 )
 
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpellSpawner" type="Sprite" parent="Items"]
-position = Vector2( 96, 230 )
-texture = ExtResource( 7 )
-script = ExtResource( 12 )
-list = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ) ]
+[node name="ItemSpawner" parent="Items" instance=ExtResource( 5 )]
+position = Vector2( 764, -86 )
 
-[node name="SpellSpawner2" type="Sprite" parent="Items"]
-position = Vector2( -153, 616 )
-texture = ExtResource( 7 )
-script = ExtResource( 12 )
-list = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ) ]
+[node name="ItemSpawner2" parent="Items" instance=ExtResource( 5 )]
+position = Vector2( -141, 640 )
 
-[node name="SpellSpawner3" type="Sprite" parent="Items"]
-position = Vector2( 767, -160 )
-texture = ExtResource( 7 )
-script = ExtResource( 12 )
-list = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ) ]
-
-[node name="SpellSpawner4" type="Sprite" parent="Items"]
-position = Vector2( 608, 95 )
-texture = ExtResource( 7 )
-script = ExtResource( 12 )
-list = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ) ]
+[node name="ItemSpawner3" parent="Items" instance=ExtResource( 5 )]
+position = Vector2( 759, 1537 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -548.0
@@ -137,8 +106,8 @@ text = "TEST ROOM
 
 use this room to test the different mechanics. "
 
-[node name="Robot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 383, 380 )
+[node name="PlayerSpawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93, 232 )
 
-[node name="Dummy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 979, 318 )
+[node name="TeleportSpawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1588, 627 )

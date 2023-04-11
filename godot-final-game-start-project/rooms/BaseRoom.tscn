@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
+[ext_resource path="res://rooms/spawners/PlayerSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/BaseRoom.gd" type="Script" id=3]
+[ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
+[ext_resource path="res://rooms/spawners/ItemSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/spawners/TeleportSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/spawners/MobSpawner.tscn" type="PackedScene" id=7]
+
+[node name="BaseRoom" type="YSort"]
+script = ExtResource( 3 )
+
+[node name="bridges" type="TileMap" parent="."]
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -131067, 5, 0, -131066, 5, 0, -65531, 5, 0, -65530, 5, 0, 327678, 5, 0, 327679, 5, 0, 262155, 5, 0, 262156, 5, 0, 393214, 5, 0, 393215, 5, 0, 327691, 5, 0, 327692, 5, 0, 720901, 5, 0, 720902, 5, 0, 786437, 5, 0, 786438, 5, 0 )
+
+[node name="Floor" type="TileMap" parent="."]
+position = Vector2( 0, -1 )
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 64
+cell_clip_uv = true
+collision_layer = 2
+collision_mask = 15
+format = 1
+tile_data = PoolIntArray( 4, 3, 0, 5, 3, 65536, 6, 3, 65536, 7, 3, 65536, 8, 3, 65536, 9, 3, 2, 65540, 3, 65536, 65541, 3, 65536, 65542, 3, 65540, 65543, 3, 131076, 65544, 3, 65536, 65545, 3, 65536, 131076, 3, 65539, 131077, 3, 65541, 131080, 3, 65536, 131081, 3, 65536, 196608, 3, 0, 196609, 3, 2, 196616, 3, 65536, 196617, 3, 65536, 196618, 3, 2, 262144, 3, 65536, 262145, 3, 65536, 262150, 3, 0, 262151, 3, 65536, 262152, 3, 65536, 262153, 3, 65538, 262154, 3, 65536, 327680, 3, 65536, 327681, 3, 65536, 327683, 3, 0, 327684, 3, 2, 327686, 3, 65536, 327687, 3, 65536, 327688, 3, 262148, 327689, 3, 65536, 327690, 3, 65536, 393216, 3, 65536, 393217, 3, 65541, 393219, 3, 65539, 393220, 3, 65536, 393221, 3, 65536, 393222, 3, 65536, 393223, 3, 65536, 393225, 3, 262147, 393226, 3, 65541, 458752, 3, 65536, 458756, 3, 65536, 458757, 3, 65536, 458758, 3, 65536, 458759, 3, 262149, 524288, 3, 65536, 524289, 3, 65536, 524290, 3, 65536, 524291, 3, 65536, 524292, 3, 65536, 524293, 3, 65538, 524294, 3, 65536, 524297, 3, 0, 524298, 3, 2, 589824, 3, 65539, 589825, 3, 262148, 589826, 3, 262145, 589827, 3, 65536, 589828, 3, 65538, 589829, 3, 65538, 589830, 3, 65536, 589831, 3, 65536, 589832, 3, 65536, 589833, 3, 65536, 589834, 3, 65536, 655363, 3, 65539, 655364, 3, 262148, 655365, 3, 262145, 655366, 3, 196612, 655367, 3, 131075, 655368, 3, 196612, 655369, 3, 131075, 655370, 3, 65541 )
+
+[node name="Details" type="TileMap" parent="."]
+position = Vector2( 0, -1 )
+z_index = -10
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 64
+cell_clip_uv = true
+collision_layer = 2
+collision_mask = 15
+format = 1
+tile_data = PoolIntArray( 393220, 2, 65536, 393221, 2, 65537, 393222, 2, 65538, 458756, 2, 131077, 458757, 2, 65539, 458758, 2, 196610, 524291, 2, 65536, 524292, 2, 196613, 524293, 2, 131075, 589827, 2, 196608, 589828, 2, 196609, 589829, 2, 196610 )
+
+[node name="Walls" type="TileMap" parent="."]
+z_index = -5
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 64
+cell_tile_origin = 2
+cell_y_sort = true
+cell_clip_uv = true
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 4, 1, 131077, 196617, 1, 4, 196618, 1, 5, 262150, 1, 196611, 262151, 1, 5, 589827, 1, 4, 589828, 1, 5, 589832, 1, 65540, 589833, 1, 262145, 589834, 1, 65541, 655369, 1, 327681 )
+
+[node name="Limits" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 128, 128 )
+collision_layer = 32
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -131068, 1, 0, -131065, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 10, 1, 0, 11, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65542, 0, 0, 65543, 0, 0, 65546, 1, 0, 65547, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 0, 0, 131077, 0, 0, 131078, 1, 0, 131079, 1, 0, 131082, 1, 0, 131083, 1, 0, 262142, 1, 0, 262143, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196619, 1, 0, 196620, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 327682, 1, 0, 327685, 1, 0, 327688, 0, 0, 458750, 1, 0, 458751, 1, 0, 393217, 0, 0, 393218, 1, 0, 393219, 0, 0, 393224, 1, 0, 393225, 0, 0, 393226, 0, 0, 393227, 1, 0, 393228, 1, 0, 524287, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458759, 0, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 589823, 1, 0, 524295, 1, 0, 524296, 1, 0, 524299, 1, 0, 655359, 1, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589835, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 1, 0, 786431, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 786436, 1, 0, 786439, 1, 0 )
+
+[node name="Mobs" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MobSpawner" parent="Mobs" instance=ExtResource( 7 )]
+position = Vector2( 1262, 613 )
+
+[node name="MobSpawner2" parent="Mobs" instance=ExtResource( 7 )]
+position = Vector2( 756, 959 )
+
+[node name="MobSpawner3" parent="Mobs" instance=ExtResource( 7 )]
+position = Vector2( 61, 927 )
+
+[node name="MobSpawner4" parent="Mobs" instance=ExtResource( 7 )]
+position = Vector2( 763, 1283 )
+
+[node name="MobSpawner5" parent="Mobs" instance=ExtResource( 7 )]
+position = Vector2( 1155, 221 )
+
+[node name="Items" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ItemSpawner" parent="Items" instance=ExtResource( 5 )]
+position = Vector2( 763, 96 )
+
+[node name="Spawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 638, 217 )
+
+[node name="TeleportSpawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 118, 624 )

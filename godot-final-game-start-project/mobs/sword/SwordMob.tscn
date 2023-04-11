@@ -21,6 +21,7 @@ extents = Vector2( 96.25, 38 )
 
 [node name="Sword" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+health = 4
 attack_speed = 1200.0
 
 [node name="CollisionShape2D" parent="." index="0"]

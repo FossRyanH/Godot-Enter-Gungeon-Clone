@@ -5,10 +5,11 @@
 [ext_resource path="res://interface/ui_elements/health_points/health_point_bg.png" type="Texture" id=3]
 
 [node name="HealthBar" type="HBoxContainer"]
-margin_right = 364.0
+margin_right = 360.0
 margin_bottom = 54.0
 mouse_filter = 2
-custom_constants/separation = 8
 script = ExtResource( 2 )
 heart_full = ExtResource( 1 )
 heart_empty = ExtResource( 3 )
+max_health = 10
+health = 10

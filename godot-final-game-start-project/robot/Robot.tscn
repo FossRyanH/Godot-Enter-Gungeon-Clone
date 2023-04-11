@@ -292,6 +292,7 @@ color_ramp = SubResource( 11 )
 [node name="Robot" type="KinematicBody2D"]
 collision_mask = 50
 script = ExtResource( 6 )
+max_health = 10
 
 [node name="Skin" type="Sprite" parent="."]
 position = Vector2( -0.474655, 0 )

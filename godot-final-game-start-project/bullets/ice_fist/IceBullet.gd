@@ -6,7 +6,7 @@ onready var particles := $IceSplashParticles2D
 
 func _ready() -> void:
 	anim_player.play("spawn")
-	_audio.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
+	anim_player.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 
 
 func _destroy() -> void:

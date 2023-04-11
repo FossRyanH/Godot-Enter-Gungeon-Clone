@@ -30,8 +30,8 @@ onready var _bridges := $bridges
 onready var _limits := $Limits
 onready var _mobs_spawners := $Mobs
 onready var _items_spawners := $Items
-onready var _spawner_robot := $SpawnerRobot
-onready var _spawner_teleporter := $SpawnerTeleporter
+onready var _spawner_robot := $Spawner
+onready var _spawner_teleporter := $TeleportSpawner
 
 
 func _ready() -> void:

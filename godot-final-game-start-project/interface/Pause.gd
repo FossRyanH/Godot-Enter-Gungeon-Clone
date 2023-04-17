@@ -8,3 +8,9 @@ onready var _button_continue := $CenterContainer/VBoxContainer/ContinueButton
 onready var _button_restart := $CenterContainer/VBoxContainer/RestartButton
 onready var _button_quit := $CenterContainer/VBoxContainer/QuitButton
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause_toggle"):
+		if not visible:
+			show()
+		else:
+			hide()

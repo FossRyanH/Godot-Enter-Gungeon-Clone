@@ -113,6 +113,7 @@ func _die() -> void:
 	_disable()
 	_animation_player.play("die")
 	_die_sound.play()
+	Events.emit_signal("mob_died", points)
 
 
 # Disables the mob. We remove anything that can trigger collisions again and

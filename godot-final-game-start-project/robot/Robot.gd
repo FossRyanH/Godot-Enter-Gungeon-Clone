@@ -53,6 +53,7 @@ func _physics_process(_delta: float) -> void:
 # Health setter, we make sure health is always between 0 and max
 func set_health(new_health: int) -> void:
 	health = clamp(new_health, 0, max_health)
+	Events.emit_signal("mob_died", health)
 
 
 # Called by the Teleport node when we walk over it. This jumps to the win screen
